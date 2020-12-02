@@ -1,0 +1,12 @@
+Source: ros-kinetic-vesc-driver
+Section: misc
+Priority: optional
+Maintainer: Johannes Betz <joebetz@seas.upenn.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-nodelet, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-roslint, ros-kinetic-serial, ros-kinetic-std-msgs, ros-kinetic-vesc-msgs
+Homepage: http://www.ros.org/wiki/vesc_driver
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-vesc-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-nodelet, ros-kinetic-pluginlib, ros-kinetic-roscpp, ros-kinetic-serial, ros-kinetic-std-msgs, ros-kinetic-vesc-msgs
+Description: ROS device driver for the Vedder VESC open source motor driver.
