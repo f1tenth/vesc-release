@@ -1,0 +1,12 @@
+Source: ros-melodic-vesc
+Section: misc
+Priority: optional
+Maintainer: Johannes Betz <joebetz@seas.upenn.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-catkin
+Homepage: http://www.ros.org/wiki/vesc
+Standards-Version: 3.9.2
+
+Package: ros-melodic-vesc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-vesc-ackermann, ros-melodic-vesc-driver, ros-melodic-vesc-msgs
+Description: Metapackage for ROS interface to the Vedder VESC open source motor controller.
