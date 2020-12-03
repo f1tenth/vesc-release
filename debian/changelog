@@ -1,0 +1,9 @@
+ros-melodic-vesc (1.0.0-1stretch) stretch; urgency=high
+
+  * Updating maintainers, authors, and URLs.
+  * added onboard car
+  * Contributors: Joshua Whitley, billyzheng
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Wed, 02 Dec 2020 06:00:00 -0000
+
+
