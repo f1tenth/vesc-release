@@ -1,0 +1,24 @@
+ros-melodic-vesc-ackermann (1.1.0-1bionic) bionic; urgency=high
+
+  * Merge pull request #1 <https://github.com/f1tenth/vesc/issues/1> from f1tenth/melodic-devel
+    Updating for Melodic
+  * Remove unused Boost dependency.
+  * Replacing boost::shared_ptr with Standard Library equivalent.
+  * Fixing roslint error.
+  * Updating package.xml to format 3 and setting C++ standard to 11.
+  * Contributors: Joshua Whitley
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Sat, 12 Dec 2020 06:00:00 -0000
+
+ros-melodic-vesc-ackermann (1.0.0-1bionic) bionic; urgency=high
+
+  * Applying roslint to vesc_ackerman.
+  * Adding roslint.
+  * Adding licenses.
+  * Updating maintainers, authors, and URLs.
+  * added onboard car
+  * Contributors: Joshua Whitley, billyzheng
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Wed, 02 Dec 2020 06:00:00 -0000
+
+
