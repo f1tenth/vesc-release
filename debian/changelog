@@ -1,0 +1,34 @@
+ros-foxy-vesc-msgs (1.2.0-1focal) focal; urgency=high
+
+  * Merge pull request #19 <https://github.com/f1tenth/vesc/issues/19> from anscipione/add_imu_support_rebase_v2
+    Add imu support and vesc udev enumeration tools (rebase upstream ros2) v2
+  * fixed timing wait for imu polling
+  * added imu polling
+  * protocol update to FW 5.2
+  * Merge pull request #12 <https://github.com/f1tenth/vesc/issues/12> from anscipione/protocol_update_to_FW_5.2
+    Protocol update to fw 5.2
+  * [vesc_msgs] Ported to ROS2.
+  * Porting all package.xml and CMakeList.txt files to ROS2.
+  * Contributors: Andrea Scipione, Joshua Whitley
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Fri, 17 Mar 2023 05:00:00 -0000
+
+ros-foxy-vesc-msgs (1.1.0-1focal) focal; urgency=high
+
+  * Merge pull request #1 <https://github.com/f1tenth/vesc/issues/1> from f1tenth/melodic-devel
+    Updating for Melodic
+  * Updating package.xml to format 3 and setting C++ standard to 11.
+  * Contributors: Joshua Whitley
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Sat, 12 Dec 2020 06:00:00 -0000
+
+ros-foxy-vesc-msgs (1.0.0-1focal) focal; urgency=high
+
+  * Adding roslint.
+  * Updating maintainers, authors, and URLs.
+  * added onboard car
+  * Contributors: Joshua Whitley, billyzheng
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Wed, 02 Dec 2020 06:00:00 -0000
+
+
