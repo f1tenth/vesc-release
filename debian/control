@@ -1,0 +1,12 @@
+Source: ros-foxy-vesc-driver
+Section: misc
+Priority: optional
+Maintainer: Johannes Betz <joebetz@seas.upenn.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-foxy-ament-cmake-auto, ros-foxy-ament-lint-auto <!nocheck>, ros-foxy-ament-lint-common <!nocheck>, ros-foxy-geometry-msgs, ros-foxy-rclcpp, ros-foxy-rclcpp-components, ros-foxy-sensor-msgs, ros-foxy-serial-driver, ros-foxy-std-msgs, ros-foxy-vesc-msgs, ros-foxy-ros-workspace
+Homepage: http://www.ros.org/wiki/vesc_driver
+Standards-Version: 3.9.2
+
+Package: ros-foxy-vesc-driver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-foxy-geometry-msgs, ros-foxy-rclcpp, ros-foxy-rclcpp-components, ros-foxy-sensor-msgs, ros-foxy-serial-driver, ros-foxy-std-msgs, ros-foxy-vesc-msgs, ros-foxy-ros-workspace
+Description: ROS device driver for the Vedder VESC open source motor driver.
