@@ -1,3 +1,30 @@
+## vesc (foxy) - 1.2.0-1
+
+The packages in the `vesc` repository were released into the `foxy` distro by running `/usr/bin/bloom-release --ros-distro foxy --track foxy --edit vesc` on `Fri, 17 Mar 2023 23:46:41 -0000`
+
+These packages were released:
+- `vesc`
+- `vesc_ackermann`
+- `vesc_driver`
+- `vesc_msgs`
+
+Version of package(s) in repository `vesc`:
+
+- upstream repository: https://github.com/f1tenth/vesc.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.2.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## vesc (melodic) - 1.1.0-1
 
 The packages in the `vesc` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --ros-distro melodic --track melodic vesc` on `Sat, 12 Dec 2020 14:06:51 -0000`
