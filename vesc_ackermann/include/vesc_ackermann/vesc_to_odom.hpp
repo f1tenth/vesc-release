@@ -28,59 +28,58 @@
 
 // -*- mode:c++; fill-column: 100; -*-
 
-#include "vesc_ackermann/ackermann_to_vesc.hpp"
+#ifndef VESC_ACKERMANN__VESC_TO_ODOM_HPP_
+#define VESC_ACKERMANN__VESC_TO_ODOM_HPP_
 
-#include <ackermann_msgs/msg/ackermann_drive_stamped.hpp>
+#include <nav_msgs/msg/odometry.hpp>
+#include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/float64.hpp>
+#include <tf2_ros/transform_broadcaster.h>
+#include <vesc_msgs/msg/vesc_state_stamped.hpp>
 
-#include <cmath>
-#include <sstream>
+#include <memory>
 #include <string>
 
 namespace vesc_ackermann
 {
 
-using ackermann_msgs::msg::AckermannDriveStamped;
-using std::placeholders::_1;
+using nav_msgs::msg::Odometry;
 using std_msgs::msg::Float64;
+using vesc_msgs::msg::VescStateStamped;
 
-AckermannToVesc::AckermannToVesc(const rclcpp::NodeOptions & options)
-: Node("ackermann_to_vesc_node", options)
+class VescToOdom : public rclcpp::Node
 {
-  // get conversion parameters
-  speed_to_erpm_gain_ = declare_parameter("speed_to_erpm_gain").get<double>();
-  speed_to_erpm_offset_ = declare_parameter("speed_to_erpm_offset").get<double>();
-  steering_to_servo_gain_ = declare_parameter("steering_angle_to_servo_gain").get<double>();
-  steering_to_servo_offset_ = declare_parameter("steering_angle_to_servo_offset").get<double>();
+public:
+  explicit VescToOdom(const rclcpp::NodeOptions & options);
 
-  // create publishers to vesc electric-RPM (speed) and servo commands
-  erpm_pub_ = create_publisher<Float64>("commands/motor/speed", 10);
-  servo_pub_ = create_publisher<Float64>("commands/servo/position", 10);
+private:
+  // ROS parameters
+  std::string odom_frame_;
+  std::string base_frame_;
+  /** State message does not report servo position, so use the command instead */
+  bool use_servo_cmd_;
+  // conversion gain and offset
+  double speed_to_erpm_gain_, speed_to_erpm_offset_;
+  double steering_to_servo_gain_, steering_to_servo_offset_;
+  double wheelbase_;
+  bool publish_tf_;
 
-  // subscribe to ackermann topic
-  ackermann_sub_ = create_subscription<AckermannDriveStamped>(
-    "ackermann_cmd", 10, std::bind(&AckermannToVesc::ackermannCmdCallback, this, _1));
-}
+  // odometry state
+  double x_, y_, yaw_;
+  Float64::SharedPtr last_servo_cmd_;  ///< Last servo position commanded value
+  VescStateStamped::SharedPtr last_state_;  ///< Last received state message
 
-void AckermannToVesc::ackermannCmdCallback(const AckermannDriveStamped::SharedPtr cmd)
-{
-  // calc vesc electric RPM (speed)
-  Float64 erpm_msg;
-  erpm_msg.data = speed_to_erpm_gain_ * cmd->drive.speed + speed_to_erpm_offset_;
+  // ROS services
+  rclcpp::Publisher<Odometry>::SharedPtr odom_pub_;
+  rclcpp::Subscription<VescStateStamped>::SharedPtr vesc_state_sub_;
+  rclcpp::Subscription<Float64>::SharedPtr servo_sub_;
+  std::shared_ptr<tf2_ros::TransformBroadcaster> tf_pub_;
 
-  // calc steering angle (servo)
-  Float64 servo_msg;
-  servo_msg.data = steering_to_servo_gain_ * cmd->drive.steering_angle + steering_to_servo_offset_;
-
-  // publish
-  if (rclcpp::ok()) {
-    erpm_pub_->publish(erpm_msg);
-    servo_pub_->publish(servo_msg);
-  }
-}
+  // ROS callbacks
+  void vescStateCallback(const VescStateStamped::SharedPtr state);
+  void servoCmdCallback(const Float64::SharedPtr servo);
+};
 
 }  // namespace vesc_ackermann
 
-#include "rclcpp_components/register_node_macro.hpp"  // NOLINT
-
-RCLCPP_COMPONENTS_REGISTER_NODE(vesc_ackermann::AckermannToVesc)
+#endif  // VESC_ACKERMANN__VESC_TO_ODOM_HPP_
