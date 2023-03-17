@@ -1,0 +1,29 @@
+ros-foxy-vesc (1.2.0-1focal) focal; urgency=high
+
+  * Merge pull request #14 <https://github.com/f1tenth/vesc/issues/14> from Triton-AI/ros2
+    Pull ros2 experimental vesc driver back into f1tenth
+  * std::optional -> std::experimental::optional
+  * force c++17
+  * Porting vesc meta-package to ROS2.
+  * Contributors: Haoru Xue, Joshua Whitley
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Fri, 17 Mar 2023 05:00:00 -0000
+
+ros-foxy-vesc (1.1.0-1focal) focal; urgency=high
+
+  * Merge pull request #1 <https://github.com/f1tenth/vesc/issues/1> from f1tenth/melodic-devel
+    Updating for Melodic
+  * Updating package.xml to format 3 and setting C++ standard to 11.
+  * Contributors: Joshua Whitley
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Sat, 12 Dec 2020 06:00:00 -0000
+
+ros-foxy-vesc (1.0.0-1focal) focal; urgency=high
+
+  * Updating maintainers, authors, and URLs.
+  * added onboard car
+  * Contributors: Joshua Whitley, billyzheng
+
+ -- Johannes Betz <joebetz@seas.upenn.edu>  Wed, 02 Dec 2020 06:00:00 -0000
+
+

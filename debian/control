@@ -1,0 +1,12 @@
+Source: ros-foxy-vesc
+Section: misc
+Priority: optional
+Maintainer: Johannes Betz <joebetz@seas.upenn.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-foxy-ament-cmake-auto, ros-foxy-ros-workspace
+Homepage: http://www.ros.org/wiki/vesc
+Standards-Version: 3.9.2
+
+Package: ros-foxy-vesc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-foxy-vesc-ackermann, ros-foxy-vesc-driver, ros-foxy-vesc-msgs, ros-foxy-ros-workspace
+Description: Metapackage for ROS interface to the Vedder VESC open source motor controller.
